@@ -15,8 +15,15 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+    it('should return "Welcome to Top Repositories API!"', () => {
+      const result = appController.getHealth();
+
+      expect(result).toMatchObject({
+        status: 'success',
+        message: 'Welcome to Top Repositories API!',
+      });
+
+      expect(result).toHaveProperty('timestamp');
     });
   });
 });

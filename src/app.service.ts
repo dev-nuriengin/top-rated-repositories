@@ -4,7 +4,7 @@ import { HealthDto } from './commons/dto';
 
 @Injectable()
 export class AppService {
-  async getHealth(): Promise<HealthDto> {
+  getHealth(): HealthDto {
     return {
       status: 'success',
       timestamp: new Date().getTime(),

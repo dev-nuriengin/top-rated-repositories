@@ -1,8 +1,7 @@
-import { Controller, Get, HttpStatus, Res } from '@nestjs/common';
-
-import { Response } from 'express';
+import { Controller, Get } from '@nestjs/common';
 
 import { AppService } from './app.service';
+import { HealthDto } from './commons/dto';
 
 @Controller()
 export class AppController {
@@ -10,8 +9,7 @@ export class AppController {
 
   // INFO: This API can be used within monitoring tools to check the health of the application
   @Get()
-  async getHealth(@Res() res: Response) {
-    const healthCheck = await this.appService.getHealth();
-    return res.status(HttpStatus.OK).send(healthCheck);
+  getHealth(): HealthDto {
+    return this.appService.getHealth();
   }
 }

@@ -1,9 +1,9 @@
+import { HttpService } from '@nestjs/axios';
 import {
   Injectable,
   InternalServerErrorException,
   NotFoundException,
 } from '@nestjs/common';
-import { HttpService } from '@nestjs/axios';
 
 import * as csv from 'csvtojson';
 import { AxiosRequestConfig } from 'axios';
@@ -15,7 +15,7 @@ import { HealthDto } from 'src/commons/dto';
 export class RepositoriesService {
   constructor(private httpService: HttpService) {}
 
-  async getModuleHealth(): Promise<HealthDto> {
+  getModuleHealth(): HealthDto {
     return {
       status: 'success',
       timestamp: new Date().getTime(),

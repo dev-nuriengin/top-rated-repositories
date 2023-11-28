@@ -3,15 +3,13 @@ import {
   Controller,
   DefaultValuePipe,
   Get,
-  HttpStatus,
   Query,
-  Res,
 } from '@nestjs/common';
 
-import { Response } from 'express';
-
 import { RepositoriesService } from './repositories.service';
+
 import { DEFAULT_LIMIT } from './constants';
+import { HealthDto } from 'src/commons/dto';
 
 @Controller('repositories')
 export class RepositoriesController {
@@ -19,9 +17,8 @@ export class RepositoriesController {
 
   // INFO: This API can be used within monitoring tools to check the health of the module
   @Get()
-  async getModuleHealth(@Res() res: Response) {
-    const healthCheck = await this.repositoriesService.getModuleHealth();
-    return res.status(HttpStatus.OK).send(healthCheck);
+  getModuleHealth(): HealthDto {
+    return this.repositoriesService.getModuleHealth();
   }
 
   // INFO: We keep the API naming in a general context while today we request for Github but tomorrow we may request for Gitlab or Bitbucket.

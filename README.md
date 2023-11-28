@@ -2,21 +2,21 @@
 
 ## TODOs:
 ### Must to have
-1. Planning
-2. Setup project
-3. Generate API
-4. Testing
-5. Dockerising
-6. Documentation
+[x] Planning
+[x] Setup project
+[ ] Generate API
+[ ] Testing
+[ ] Dockerising
+[ ] Documentation
 
 ### Nice to have
-1. Generate config.ts
-2. Error handling and logging strategy
-3. Data/Input Validation
-4. API documentation: Swagger
-5. Code quality setup: Linting, Prettier, git-hooks or husky
-6. Security setup: CORS, Rate limit, DDoS attacks.
-7. DevOps setup: Different envs.
+[ ] Generate config.ts
+[ ] Error handling and logging strategy
+[ ] Data/Input Validation
+[ ] API documentation: Swagger
+[ ] Code quality setup: Linting, Prettier, git-hooks or husky
+[ ] Security setup: CORS, Rate limit, DDoS attacks.
+[ ] DevOps setup: Different envs.
 
 ## Time Consumption (CET)
 1. Planning and scaffold: 20:15 - 21:30 

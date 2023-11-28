@@ -4,8 +4,8 @@
 ### Must to have
 - [x] Planning
 - [x] Setup project
-- [ ] Generate API
-- [ ] Postman collection
+- [x] Generate API
+- [x] Postman collection
 - [ ] Testing
 - [ ] Dockerising
 - [ ] Documentation
@@ -25,4 +25,4 @@
 
 ## Time Consumption (CET)
 1. Planning and scaffold: 20:15 - 21:40 
-2. Generating the API: 21:40 - ...
+2. Generating the API: 21:40 - 23:30

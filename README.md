@@ -6,8 +6,8 @@
 - [x] Setup project
 - [x] Generate API
 - [x] Postman collection
-- [ ] Testing
-- [ ] Dockerising
+- [x] Testing
+- [x] Dockerising
 - [ ] Documentation
 
 ### Nice to have

@@ -11,6 +11,7 @@
 - [ ] Documentation
 
 ### Nice to have
+- [ ] Provide caching
 - [ ] Generate config.ts
 - [ ] Error handling and logging strategy
 - [ ] Data/Input Validation

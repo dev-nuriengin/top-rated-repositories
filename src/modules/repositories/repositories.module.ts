@@ -11,4 +11,4 @@ import { RepositoriesService } from './repositories.service';
   providers: [RepositoriesService],
   exports: [RepositoriesService],
 })
-export class RepositoriesModule { }
+export class RepositoriesModule {}

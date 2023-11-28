@@ -1,4 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import {
+  Injectable,
+  InternalServerErrorException,
+  NotFoundException,
+} from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 
 import * as csv from 'csvtojson';
@@ -9,7 +13,7 @@ import { HealthDto } from 'src/commons/dto';
 
 @Injectable()
 export class RepositoriesService {
-  constructor(private httpService: HttpService) { }
+  constructor(private httpService: HttpService) {}
 
   async getModuleHealth(): Promise<HealthDto> {
     return {
@@ -20,9 +24,14 @@ export class RepositoriesService {
   }
 
   async getTopRatedRepositories(date: string, language: string, limit: number) {
+    // INFO: Keep each step into specific variables for now;
+    // Thus, in future we may make it easier to debug. add logs/metrics, and to test
+    // Also, we can split each step into a separate function to provide more business logic
+
     // TODO: Get this from config settings
     const url = `https://raw.githubusercontent.com/EvanLi/Github-Ranking/master/Data/github-ranking-${date}.csv`;
 
+    // TODO: Provide caching mechanism to avoid calling this API multiple times or response same filtered data
     const config: AxiosRequestConfig = {
       baseURL: url,
       method: 'GET',
@@ -33,16 +42,34 @@ export class RepositoriesService {
       },
     };
 
-    // INFO: Keep each step into specific variables for now;
-    // Thus, in future we may make it easier to debug. add logs/metrics, and to test
-    // Also, we can split each step into a separate function to provide more business logic
-    const http = this.httpService.request(config);
+    try {
+      const http = this.httpService.request(config);
 
-    const response = await firstValueFrom(http.pipe(map((res) => res.data)));
+      const response = await firstValueFrom(http.pipe(map((res) => res.data)));
 
-    // TODO: Filter "languages" and "limit" before converting to JSON
-    const repositories = await csv().fromString(response);
+      // TODO: Split this into a separate functions
+      let repositories = await csv().fromString(response);
 
-    return repositories;
+      if (!repositories) {
+        throw new NotFoundException('Repositories not found');
+      }
+
+      if (language) {
+        repositories = repositories.filter(
+          (repo) => repo.language === language,
+        );
+      }
+
+      if (limit && limit > 0) {
+        repositories = repositories.slice(0, limit);
+      }
+
+      return {
+        status: 'success',
+        result: repositories,
+      };
+    } catch (error) {
+      throw new InternalServerErrorException('Failed to fetch repositories');
+    }
   }
 }

@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "87e59a57-6d89-49d6-b217-e16a42e50ad1",
+		"name": "Parloa",
+		"description": "Repositories API endpoints\n\nEnvironments variables:\n\n``` bash\nDEV_URL=http://localhost:3000\n\n ```",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31184922"
+	},
+	"item": [
+		{
+			"name": "Repositories",
+			"item": [
+				{
+					"name": "Module Health check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DEV_URL}}/repositories",
+							"host": [
+								"{{DEV_URL}}"
+							],
+							"path": [
+								"repositories"
+							]
+						},
+						"description": "Returns a health check result for the Repositories Module."
+					},
+					"response": [
+						{
+							"name": "Module Health check",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{DEV_URL}}/repositories",
+									"host": [
+										"{{DEV_URL}}"
+									],
+									"path": [
+										"repositories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "89"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"59-OWoaE393mK8YGMYdz/BnCpx5Jtg\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 28 Nov 2023 21:10:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"timestamp\": 1701205829564,\n    \"message\": \"Repositories module is working\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Repositories Module related endoints"
+		},
+		{
+			"name": "App Health check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{DEV_URL}}",
+					"host": [
+						"{{DEV_URL}}"
+					]
+				},
+				"description": "Returns a health check result for the Application."
+			},
+			"response": [
+				{
+					"name": "App Health check",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DEV_URL}}",
+							"host": [
+								"{{DEV_URL}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "91"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5b-5Bava0fLlkcial0PNUyi8NCQPro\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 28 Nov 2023 21:10:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"timestamp\": 1701205810736,\n    \"message\": \"Welcome to Top Repositories API!\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "DEV_URL",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}

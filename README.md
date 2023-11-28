@@ -19,6 +19,9 @@
 - [ ] Security setup: CORS, Rate limit, DDoS attacks.
 - [ ] DevOps setup: Different envs.
 
+### Side notes
+1. API Documentation: https://documenter.getpostman.com/view/31184922/2s9YXo1fBy
+
 ## Time Consumption (CET)
 1. Planning and scaffold: 20:15 - 21:40 
 2. Generating the API: 21:40 - ...

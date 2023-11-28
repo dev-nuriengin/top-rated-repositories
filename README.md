@@ -5,6 +5,7 @@
 - [x] Planning
 - [x] Setup project
 - [ ] Generate API
+- [ ] Postman collection
 - [ ] Testing
 - [ ] Dockerising
 - [ ] Documentation
@@ -19,5 +20,5 @@
 - [ ] DevOps setup: Different envs.
 
 ## Time Consumption (CET)
-1. Planning and scaffold: 20:15 - 21:30 
-2. Generating the API
+1. Planning and scaffold: 20:15 - 21:40 
+2. Generating the API: 21:40 - ...

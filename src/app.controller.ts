@@ -1,13 +1,16 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, HttpStatus, Res } from '@nestjs/common';
+
+import { Response } from 'express';
+
 import { AppService } from './app.service';
-import { HealthDto } from './commons/dto';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) { }
+  constructor(private readonly appService: AppService) {}
 
   @Get()
-  getHello(): HealthDto {
-    return this.appService.health();
+  async getHealth(@Res() res: Response) {
+    const healthCheck = await this.appService.getHealth();
+    return res.status(HttpStatus.OK).send(healthCheck);
   }
 }
